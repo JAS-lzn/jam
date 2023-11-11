@@ -14,4 +14,4 @@ target/
 *.pdb
 
 # DO NOT TRACK THE REPOS WE CLONE HOLY
-/cloned_repos/
+/working_dir/

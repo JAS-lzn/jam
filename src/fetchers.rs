@@ -15,7 +15,7 @@ fn repo_cloner(url: &str) {
 	println!("Cloning repo: {}", url);
 	let git_name = url.split("/").collect::<Vec<&str>>().pop().unwrap();
 	let repo_name = git_name.replace(".git", "");
-	match Repository::clone(url, format!("../cloned_repos/{}", repo_name)) {
+	match Repository::clone(url, format!("./working_dir/{}", repo_name)) {
 		Ok(repo) => repo,
 		Err(e) => panic!("failed to clone: {}", e),
 	};

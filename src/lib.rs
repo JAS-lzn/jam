@@ -1,5 +1,6 @@
 mod fetchers;
 mod parsers;
+mod tests;
 
 use fetchers::*;
 use parsers::*;
