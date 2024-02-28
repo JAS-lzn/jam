@@ -1,7 +1,7 @@
-use std::{fs, path};
+use std::fs;
 
 // TODO: identify functions in method text
-pub fn find_methods(repo_directory: String) -> Vec<String> {
+pub fn find_methods(_repo_directory: String) -> Vec<String> {
     return navigate_files();
 }
 
@@ -11,7 +11,7 @@ fn navigate_files() -> Vec<String> {
     // stringify all those files
     // Invoke the 'find_methods' method for each of the files
     // repeat recursivly for each directory in the current directory
-    let paths = fs::read_dir("./working_dir").unwrap();
+    let paths = fs::read_dir("./working_dir/m").unwrap();
 
     let mut path_holder = Vec::new();
     for path in paths {

@@ -34,7 +34,7 @@ pub fn diff_finder(arg_path: String) -> Vec<String> {
 
     print!("{}", repo.is_bare() as i32);
 
-    let list_of_files = find_methods("working_dir".to_owned());
+    let list_of_files = find_methods("working_dir/m".to_owned());
 
     return list_of_files;
 
