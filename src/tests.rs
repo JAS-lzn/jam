@@ -10,7 +10,7 @@ fn can_get_repo() {
 
 #[test]
 fn can_read_files() {
- let files = crate::diff_finder("m".to_owned());
+ let files = crate::diff_finder("working_dir/m".to_owned());
  println!("{}", files.join(" "));
  
  assert!(files.len() > 1);
