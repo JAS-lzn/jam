@@ -2,20 +2,35 @@ use std::fs;
 
 // TODO: identify functions in method text
 pub fn find_methods(repo_directory: String) -> Vec<String> {
-    return navigate_files(repo_directory);
+    return navigate_files(&repo_directory);
 }
 
 // TODO: recursively navigate thru files
-fn navigate_files(arg_directory: String) -> Vec<String> {
+fn navigate_files(arg_directory: &String) -> Vec<String> {
     // Identify all the files in the current directory
     // stringify all those files
     // Invoke the 'find_methods' method for each of the files
     // repeat recursively for each directory in the current directory
-    let paths = fs::read_dir(arg_directory).unwrap();
+	println!("{}", arg_directory.clone());
+    let paths = fs::read_dir(arg_directory.to_owned()).unwrap();
 
     let mut path_holder = Vec::new();
+
+    // get the list of file names in arg_directory
     for path in paths {
         path_holder.push(path.unwrap().path().display().to_string());
+    }
+	
+    // once we've got all the file names
+    for path in path_holder.clone() {
+        // only examine the python files
+        // if path.ends_with(".py") {
+		println!("{}", arg_directory.to_owned() + "/" + &path.clone());
+        match fs::read_to_string(arg_directory.to_owned() + "/" + &path.clone()) {
+            Ok(_s) => print!("{}", _s),
+            Err(_err) => panic!("{}", _err),
+        }
+        // }
     }
     return path_holder;
 }

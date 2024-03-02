@@ -12,7 +12,7 @@ pub fn git_data(options: FetchOptions) {
 }
 
 fn repo_cloner(url: &str) {
-    println!("Cloning repo: {}", url);
+    // println!("Cloning repo: {}", url);
     let git_name = url.split("/").collect::<Vec<&str>>().pop().unwrap();
     let repo_name = git_name.replace(".git", "");
     match Repository::clone(url, format!("./working_dir/{}", repo_name)) {
